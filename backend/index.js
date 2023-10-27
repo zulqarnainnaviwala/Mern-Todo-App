@@ -2,6 +2,7 @@ import express from "express";
 import Connection from "./database/dbConfig.js";
 import dotenv from "dotenv";
 import cors from "cors";
+import route from "./routes/routes.js";
 import bodyParser from "body-parser";
 
 const app = express();
@@ -14,6 +15,8 @@ app.use(cors());
 //OR ALSO CAN BE DONE BY helper package : body-parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use("/", route);
 
 dotenv.config();
 const user = process.env.DATABASE_USERNAME;
