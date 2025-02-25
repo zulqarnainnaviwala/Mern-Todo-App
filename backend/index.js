@@ -19,10 +19,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", route);
 
 dotenv.config();
-const user = process.env.DATABASE_USERNAME;
-const pass = process.env.DATABASE_PASSWORD;
+const connectionURL = process.env.DATABASE_URI;
+
 const port = process.env.PORT;
-Connection(user, pass);
+Connection(connectionURL);
 
 // const PORT = 8000;
 app.listen(port, () =>

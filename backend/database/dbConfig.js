@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
 
-const Connection = (user, pass) => {
-  const URL = `mongodb+srv://${user}:${pass}@mern-todo-app.wqixazp.mongodb.net/`;
+const Connection = (connectionURL) => {
 
-  mongoose.connect(URL, { useNewUrlParser: true });
+  mongoose.connect(connectionURL, { useNewUrlParser: true });
 
   mongoose.connection.on("connected", () => {
     console.log("Database connected Successfully");
